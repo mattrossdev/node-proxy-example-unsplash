@@ -7,7 +7,7 @@ const PORT = process.env.port || 3000;
 
 app.use(express.urlencoded({ extended: true }));
 
-app.post("/image-search", async (req, res) => {
+app.get("/image-search", async (req, res) => {
   try {
     const unsplashURL = "https://api.unsplash.com/search/photos";
 
