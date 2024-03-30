@@ -3,6 +3,9 @@ const axios = require("axios");
 require("dotenv").config();
 
 const app = express();
+
+app.use(cors());
+
 const PORT = process.env.port || 3000;
 
 app.use(express.urlencoded({ extended: true }));
@@ -15,7 +18,6 @@ app.get("/image-search", async (req, res) => {
       ...req.query,
       client_id: process.env.UNSPLASH_API_KEY,
     };
-    console.log(queryParams);
 
     const response = await axios.get(unsplashURL, { params: queryParams });
 
